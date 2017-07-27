@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Navigation } from 'components'
 import { container, innerContainer } from './styles.css'
-
+import { connect } from 'react-redux'
 class MainContainer extends Component {
   render () {
     return (
       <div className={container}>
-        <Navigation isAuthed={false} />
+        <Navigation isAuthed={this.props.isAuthed} />
         <div className={innerContainer}>
           {this.props.children}
         </div>
@@ -15,4 +15,5 @@ class MainContainer extends Component {
   }
 }
 
-export default MainContainer
+
+export default connect((state)=> ({isAuthed: state.isAuthed}))(MainContainer)

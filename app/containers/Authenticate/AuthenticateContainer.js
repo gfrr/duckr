@@ -8,13 +8,7 @@ import * as userActionCreators from 'redux/modules/users'
 class AuthenticateContainer extends Component {
 
   handleAuth = () => {
-    this.props.fetchingUser()
-    auth().then((user) => {
-      this.props.fetchingUserSuccess(user.uid, user, Date.now())
-      this.props.authUser(user.uid)
-
-    })
-    .catch((error) => this.props.fetchingUserFailure(error))
+    this.props.fetchAndHandleAuthedUser()
   }
   render () {
     console.log("isFetching?", this.props.isFetching)
@@ -28,9 +22,7 @@ class AuthenticateContainer extends Component {
 }
 
 Authenticate.propTypes = {
-    fetchingUser: PropTypes.func.isRequired,
-    fetchingUserFailure: PropTypes.func.isRequired,
-    fetchingUserSuccess: PropTypes.func.isRequired,
+    fetchAndHandleAuthedUser: PropTypes.func.isRequired,
     isFetching: PropTypes.bool.isRequired,
     error: PropTypes.string.isRequired,
 }

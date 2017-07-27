@@ -5,7 +5,7 @@
    render () {
     return (
       <div className={container}>
-        <Navigation isAuthed={true} />
+        <Navigation isAuthed={false} />
         <div className={innerContainer}>
           {this.props.children}
         </div>

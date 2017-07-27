@@ -1,12 +1,14 @@
 import React from 'react'
-import { MainContainer, HomeContainer } from 'containers'
-import { HashRouter,Router, Route, IndexRoute } from 'react-router-dom';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import { MainContainer, HomeContainer, AuthenticateContainer } from 'containers'
 
 const routes = (
-  <HashRouter>
-      <Route exact path = "/" component = {<MainContainer><HomeContainer/></MainContainer>}/>
-  </HashRouter>
-
+  <Router history={hashHistory}>
+    <Route path='/' component={MainContainer}>
+      <Route path='auth' component={AuthenticateContainer} />
+      <IndexRoute component={HomeContainer} />
+    </Route>
+  </Router>
 )
 
 export default routes

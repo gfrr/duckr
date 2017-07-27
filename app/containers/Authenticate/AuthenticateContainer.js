@@ -4,21 +4,21 @@ import auth from 'helpers/auth'
 
 
 class AuthenticateContainer extends Component {
-  handleAuth(){
-    auth().then((user)=>{
-      console.log("User", user)
+  handleAuth () {
+    auth().then((user) => {
+      console.log(user)
     })
   }
-
-  render(){
-    return(
+  
+  render () {
+    return (
       <Authenticate
         onAuth={this.handleAuth}
         isFetching={false}
-        error={''}
-      />
+        error={''} />
     )
   }
 }
+
 
 export default AuthenticateContainer

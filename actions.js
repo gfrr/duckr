@@ -1,4 +1,3 @@
-
 // Users
 {
   type: AUTH_USER,
